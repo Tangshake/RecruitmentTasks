@@ -102,7 +102,7 @@ bool IsStringAPalindrome(string text, bool ignoreCase)
 /// </exception>
 Dictionary<char,int> CountEachLetter(string text)
 {
-     Console.WriteLine($"Hi! My name is {nameof(IsStringAPalindrome)}. Let me count occurence of each letter in the given text: \"{text}\" "); //nameof(method) c#6
+     Console.WriteLine($"Hi! My name is {nameof(CountEachLetter)}. Let me count occurence of each letter in the given text: \"{text}\" "); //nameof(method) c#6
 
     //Let's check if given string is not empty or null
     if(string.IsNullOrEmpty(text))
@@ -131,7 +131,7 @@ Dictionary<char,int> CountEachLetter(string text)
 /// </exception>
 void PrintDictionaryContent(Dictionary<char, int> dict)
 {
-        //Let's check if dictionary is not null
+    //Let's check if dictionary is not null
     if(dict is null)
         throw new ArgumentException("Dictionary can't be null.");
 
