@@ -17,6 +17,9 @@ HandsOfClockAngle(time: null);
 var m3_result = HandsOfClockAngle(DateTime.Parse("12:15"));
 Console.WriteLine($"Angle between clock hands: {m3_result}°");
 
+var m4_result = FindMissingNumber(new int[] {1,2,0,3});
+Console.WriteLine($"Is number: {m4_result} the missing element that you have been looking for?");
+
 /// <summary>
 /// Calculate factorial from given natural number using recurency
 /// </summary>
@@ -27,7 +30,6 @@ Console.WriteLine($"Angle between clock hands: {m3_result}°");
 /// </exception>
 uint FactorialWithRecurency(uint value)
 {
-    //Console.WriteLine($"Hi! My name is {nameof(Factorial)}. I am going to calculate factorial number using recurency."); //nameof(method) c#6
     return value == 0 ? 1 : value * FactorialWithRecurency(value - 1);
 }
 
@@ -93,4 +95,33 @@ double HandsOfClockAngle(DateTime? time)
     if(angle > 180) angle = 360 - angle; 
     
     return angle;
+}
+
+/// <summary>
+/// Find the missing number in an arithmetic sequence that is stored in an array.
+/// </summary>
+/// <param name="numbers">The <see cref="System.Array"/> represents the array with integer numbers. Numbers are unique.</param>
+/// <returns>Missing number</returns>
+/// <exception cref="System.ArgumentException">
+/// <paramref name="numbers"/>
+/// </exception>
+int FindMissingNumber(int[] numbers)
+{
+    //Basically we have an array of type int and size n. example:[0,3,1] (n=3)
+    //Numbers stored in this array are unique. When sorted, numbers should create a sequence (part of it) of size n with one missing element. [0,1,3] (2 is missing)
+    Console.WriteLine($"Hi! My name is {nameof(FindMissingNumber)}. I am going to find the missing number.");
+    
+    if(numbers is null || numbers.Length < 2 || numbers.Length < numbers.Max())
+        throw new ArgumentException("Provided array is null, has not enough elements or numbers will not create an arithmetic sequence.");
+
+    //Since its an arithmetic sequence easiest way to do it is to calculate sum of all elements in the array and substract it from the sum of arithmetic sequence stored in an array with lenght n+1. Result will be a missing element
+    
+    //Get max integer value from our input array
+    var sum = numbers.Sum();
+
+    //calculate arithemtic sequence of size n+1 [0,1,2,3] (n=4)
+    //We take the first and the last element of the aritmhetic sequence and we sum it. Then we multiply it by number of elements in the sequence and divide it by 2. 
+    var sum_big = ((0 + numbers.Length + 1) * numbers.Length) / 2;
+
+    return sum_big - sum;
 }
