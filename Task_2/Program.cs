@@ -111,7 +111,7 @@ int FindMissingNumber(int[] numbers)
     //Numbers stored in this array are unique. When sorted, numbers should create a sequence (part of it) of size n with one missing element. [0,1,3] (2 is missing)
     Console.WriteLine($"Hi! My name is {nameof(FindMissingNumber)}. I am going to find the missing number.");
     
-    if(numbers is null || numbers.Length < 2 || numbers.Length < numbers.Max())
+    if(numbers is null || numbers.Length < 1 || numbers.Length < numbers.Max())
         throw new ArgumentException("Provided array is null, has not enough elements or numbers will not create an arithmetic sequence.");
 
     //Since its an arithmetic sequence easiest way to do it is to calculate sum of all elements in the array and substract it from the sum of arithmetic sequence stored in an array with lenght n+1. Result will be a missing element
