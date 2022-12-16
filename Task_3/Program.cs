@@ -5,7 +5,7 @@
     - use built-in functions like Contains(), StartsWith(), etc.
 */
 
-uint numberToCheck = 0124567892;
+uint numberToCheck = 0124567891;
 var result = Check(numberToCheck);
 Console.WriteLine($"Result: {result}");
 
