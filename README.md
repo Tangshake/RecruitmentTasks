@@ -29,3 +29,12 @@
     (10 + 2) * 3
     36 <-- final result
     ```
+ - Task_6
+    Write a program that draws Christmass tree in the console. Tree consist of two parts. Main top vertex and optional tree trunk. 
+    ```
+       *
+      ***
+     *****
+       |
+       |
+    ```
