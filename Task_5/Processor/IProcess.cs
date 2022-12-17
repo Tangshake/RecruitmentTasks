@@ -4,5 +4,5 @@ namespace Task_5.Processor;
 
 public interface IProcess
 {
-    void Process(List<Instruction> instructions);
+    void Process(List<IInstruction> instructions);
 }

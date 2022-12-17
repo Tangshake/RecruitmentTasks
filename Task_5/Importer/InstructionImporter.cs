@@ -3,14 +3,14 @@ using Task_5.Model;
 namespace Task_5.Importer;
 public class InstructionImporter : IImport
 {
-    public List<Instruction> ImportFromFile(string filePath)
+    public List<IInstruction> ImportFromFile(string filePath)
     {
         if (!System.IO.File.Exists(filePath))
             throw new FileNotFoundException();
 
         var fileContent = System.IO.File.ReadAllLines(filePath);
 
-        var instructions = new List<Instruction>();
+        var instructions = new List<IInstruction>();
 
         foreach(string ins in fileContent)
         {

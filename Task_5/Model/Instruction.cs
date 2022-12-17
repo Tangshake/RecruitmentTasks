@@ -1,6 +1,6 @@
 namespace Task_5.Model;
 
-public class Instruction {
+public class Instruction :IInstruction {
     public CommandType Command { get; set; }
     public int Value { get; set; }
 }

@@ -4,5 +4,5 @@ namespace Task_5.Importer;
 
 public interface IImport
 {
-    public List<Instruction> ImportFromFile(string filePath);
+    public List<IInstruction> ImportFromFile(string filePath);
 }

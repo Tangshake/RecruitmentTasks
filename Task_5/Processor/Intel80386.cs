@@ -6,7 +6,7 @@ public class Intel80386 : IProcess
 {
     private float result = 0;
 
-    public void Process(List<Instruction> instructions)
+    public void Process(List<IInstruction> instructions)
     {
         //Init value
         result = instructions.First(x => x.Command == CommandType.Apply).Value;
@@ -18,7 +18,7 @@ public class Intel80386 : IProcess
         }
     }
 
-    private void ExecuteInstruction(Instruction instruction)
+    private void ExecuteInstruction(IInstruction instruction)
     {
         switch(instruction.Command)
         {
