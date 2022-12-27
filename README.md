@@ -38,3 +38,5 @@
        |
        |
     ```
+ - Task_7
+    Wriite a program that returns the first lower number then the one provided as a parameter. Method should accept and return long data type. When no smaller number is to be found return -1 value.
