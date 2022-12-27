@@ -1,4 +1,4 @@
-using FirstLowerNumber.Alghoritm;
+using FirstLowerNumber.Alghorithm;
 
 namespace FirstLowerNumberTests;
 
