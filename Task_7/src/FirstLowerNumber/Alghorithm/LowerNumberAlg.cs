@@ -1,5 +1,5 @@
 
-namespace FirstLowerNumber.Alghoritm;
+namespace FirstLowerNumber.Alghorithm;
 
 public class LowerNumberAlg
 {
