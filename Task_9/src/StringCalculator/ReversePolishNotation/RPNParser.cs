@@ -67,6 +67,10 @@ public class RPNParser
         };
     }
 
+    /// <summary>
+    /// Add Operator of type IToken to the stack list.
+    /// </summary>
+    /// <param name="token">Operator of type IToken</param>
     private void PushOperator(IToken token)
     {
         if (token.Value.Equals(RIGHT_BRACKET))
@@ -89,11 +93,20 @@ public class RPNParser
             stack.Add(token);
     }
 
+    /// <summary>
+    /// Add Operand of type IToken to the output list.
+    /// </summary>
+    /// <param name="token">Operator of type IToken</param>
     private void PushOperand(IToken token)
     {
         output.Add(token);
     }
 
+    /// <summary>
+    /// Take out one element from the list. Element is then removed from the list. 
+    /// </summary>
+    /// <param name="index">Index of the element.</param>
+    /// <returns>Returns IToken element</returns>
     private List<IToken> Pop(int index)
     {
         var result = stack.GetRange(index + 1, stack.Count - index - 1);
@@ -102,6 +115,11 @@ public class RPNParser
         return result;
     }
 
+    /// <summary>
+    /// Check if provided character is an math operator.
+    /// </summary>
+    /// <param name="ch">Character to check</param>
+    /// <returns>True if character matches defined one.</returns>
     private bool IsCharacterAnOperator(char ch)
     {
         return operators.ContainsKey(ch.ToString());
