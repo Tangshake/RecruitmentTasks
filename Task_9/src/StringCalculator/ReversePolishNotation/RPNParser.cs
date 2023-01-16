@@ -1,5 +1,4 @@
 using System.Text;
-using StringCalculator.Interfaces.Token;
 using StringCalculator.Model;
 
 namespace StringCalculator.ReversePolishNotation;

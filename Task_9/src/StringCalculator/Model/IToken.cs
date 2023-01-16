@@ -1,4 +1,4 @@
-namespace StringCalculator.Interfaces.Token;
+namespace StringCalculator.Model;
 
 public interface IToken
 {
