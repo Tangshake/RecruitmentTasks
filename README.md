@@ -64,3 +64,10 @@
 Examples:</br>
 "CAT" => 22228 (three times pressed 2 to get C, then 2 pressed once to get A and 8 pressed once to get T)</br>
 "HELLO THERE" => 4433555555666#8443377733
+
+- Task_9
+    Program that calculates the result from the mathematical operations provided as a string. Only following operators are allowed: [+,-,*,/,^]. Example:
+```
+"1+2" => 3
+"1+(2+3)*2" => 11
+```
