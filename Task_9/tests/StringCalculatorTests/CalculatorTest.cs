@@ -16,4 +16,45 @@ public class CalculatorTest
         //Assert
         Assert.Equal(expected: expectedResult, actual: actualResult);
     }
+
+    [Fact]
+    public void Calculate_NullStringAsInput_ShouldThrowException()
+    {
+        //Arrange
+        var calculator = new Calculator();
+
+        //Act
+        var exception = Record.Exception(() => calculator.Calculate(null));
+
+        //Assert
+        Assert.IsType(typeof(ArgumentNullException), exception);
+        Assert.True(exception.Message.Contains("String cannot be null"));
+    }
+
+    [Theory]
+    [InlineData("1+")]
+    [InlineData("1")]
+    [InlineData("12")]
+    public void Calculate_TooShortStringAsInput_ShouldThrowException(string input)
+    {
+        //Arrange
+        var calculator = new Calculator();
+
+        //Act + Assert
+        Assert.Throws<ArgumentException>(()=> calculator.Calculate(input));
+    }
+
+    [Theory]
+    [InlineData("1.2*4(2-3)+1")]
+    [InlineData("1A2")]
+    [InlineData("=1+2")]
+    [InlineData("1?2")]
+    public void Calculate_StringContainingIllegalCharacters_ShouldThrowException(string input)
+    {
+        //Arrange
+        var calculator = new Calculator();
+
+        //Act + Assert
+        Assert.Throws<ArgumentNullException>(()=> calculator.Calculate(null));
+    }
 }
