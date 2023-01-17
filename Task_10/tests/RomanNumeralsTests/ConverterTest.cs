@@ -2,16 +2,31 @@ namespace RomanNumeralsTests;
 
 public class ConverterTest
 {
-    [Fact]
-    public void ConvertToRoman_IntegerNumber_ShouldReturnValidRomanNumeralString()
+    [Theory]
+    [InlineData(10, "X")]
+    [InlineData(999, "CMXCIX")]
+    public void ConvertToRoman_IntegerNumber_ShouldReturnValidRomanNumeralString(int input, string expected)
     {
         //Arrange
         var converter = new Converter();
-        var input = 10;
-        var expected = "X";
 
         //Act
         var actual = converter.ConvertToRoman(input);
+
+        //Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData("X", 10)]
+    [InlineData("CMXCIX", 999)]
+    public void ConvertFromRoman_RomanNumeralsAsString_ShouldReturnValidNumber(string input, int expected)
+    {
+        //Arrange
+        var converter = new Converter();
+
+        //Act
+        var actual = converter.ConvertFromRoman(input);
 
         //Assert
         Assert.Equal(expected, actual);
