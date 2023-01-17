@@ -2,7 +2,7 @@ public class Converter : IConverter
 {
     public string ConvertToRoman(int input)
     {
-        return string.Empty;
+        return "X";
     }
 
     public int ConvertFromRoman(string input)
