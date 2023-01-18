@@ -6,25 +6,31 @@ public class Converter : IConverter
     int[] array = new int[] { 1000, 500, 100, 50, 10, 5, 1 };
     char[] symbols = new char[] {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
     Regex reg = new Regex(@"[^IVXLCDM]");
+    StringBuilder sb = new StringBuilder();
 
+
+    /// <summary>
+    /// Convert Roman Numeral string to int.
+    /// </summary>
+    /// <param name="input">Roman Numeral string</param>
+    /// <exception cref="System.ArgumentException">Thrown when input value is 0 or below 0 or when input value is greater or equal 4000.</exception>
+    /// <returns>int</returns>
     public string ConvertToRoman(int input)
     {
         if(input <=0 || input >= 4000)
             throw new ArgumentException("Input number should be > 0 and < 4000");
-        
+
+        sb.Clear();    
         int tmp = input;
-        StringBuilder sb = new StringBuilder();
         
         for(int i=0; i < array.Length; i++)
         {
             tmp = input / array[i];
-            Console.WriteLine($"[{i}] arr:{array[i]} tmp:{tmp} numb:{input}");
             if(tmp == 0)
                 continue;
             
             if(i+1 < array.Length && (input - tmp * array[i]) / (array[i+1]) == 4)
             {
-                Console.WriteLine($"{symbols[i+1]}{symbols[i-1]}");
                 sb.Append(symbols[i+1]).Append(symbols[i-1]);
                 input = input - (array[i-1] - array[i+1]);
             }
@@ -33,24 +39,25 @@ public class Converter : IConverter
                 if(tmp == 4)
                 {
                     sb.Append(symbols[i]).Append(symbols[i-1]);
-                    Console.WriteLine($"{symbols[i]}{symbols[i-1]}");
-                    input = input - tmp * array[i];
                 }
                 else
                 {
-                    Console.WriteLine($"{new string(symbols[i], tmp)}");
                     sb.Append(new string(symbols[i], tmp));
-                    input = input - tmp * array[i];
                 }
+                
+                input = input - tmp * array[i];
             }
-            
-            Console.WriteLine("");
         }
-        
 
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Convert int number to Roman Numeral string.
+    /// </summary>
+    /// <param name="input">Integer number between 0 and 4000</param>
+    /// <exception cref="System.ArgumentException">Thrown when string is null, empty or contains illegal characters.</exception>
+    /// <returns>Roman numeral string.</returns>
     public int ConvertFromRoman(string input)
     {
         if(string.IsNullOrEmpty(input) || reg.IsMatch(input))

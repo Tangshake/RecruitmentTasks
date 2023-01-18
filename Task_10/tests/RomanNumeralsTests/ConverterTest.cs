@@ -18,6 +18,8 @@ public class ConverterTest
     }
 
     [Theory]
+    [InlineData("I", 1)]
+    [InlineData("IV", 4)]
     [InlineData("X", 10)]
     [InlineData("CMXCIX", 999)]
     public void ConvertFromRoman_RomanNumeralsAsString_ShouldReturnValidNumber(string input, int expected)
